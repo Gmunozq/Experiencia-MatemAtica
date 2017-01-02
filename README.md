@@ -9,3 +9,6 @@ Tiene una clase Matriz para representar matrices y sus operaciones, no requiere 
 
 AlgLinGauss.py
 Es un algoritmo que evalúa y sugiere el proceso para obtener la forma escalón de una matriz
+
+GMmult.py
+Es un programa para ayudar a los niños a aprender las tablas de multiplicar
