@@ -121,7 +121,7 @@ while repetir:
             msg='La matriz no cambio*' 
             print(msg)
     except ValueError, e:
-        operacion==operacion.strip().lower()
+        operacion==operacion.replace(' ','').lower()
         if operacion=='salir':
             repetir=False
             print("hasta luego")
