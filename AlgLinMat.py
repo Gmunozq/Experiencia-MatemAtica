@@ -77,7 +77,7 @@ class Num:
     def __init__(self,val):
         if type(val) is str:
             self.val=str2num(val)
-        elif type(val) is Fraction:
+        elif isinstance(val,Fraction):
             self.val= frac(val)
         else:
             self.val=val
@@ -133,6 +133,8 @@ def expulgar(s):
 #matriz  
 def matlab2python(lista):
         lista1=lista.split(';')
+        #print('lista1')
+        #print(lista1)
         lista2=map(lambda n: n.split(),lista1)
         lista3=map(lambda n: map(Num,n),lista2)
         return lista3
@@ -140,14 +142,16 @@ def matlab2python(lista):
     
 class matriz:# es una columna de renglones
   def __init__(self,lista,txt=""):
-    if type(lista) is list:
-        self.lista=map(lambda n: map(Num,n),lista)
+    #print('lista1 '+str(type(lista)))
     if type(lista) is str:
         self.lista= matlab2python(lista)
+    if isinstance(lista,list):
+        self.lista=map(lambda n: map(Num,n),lista)
     if txt!="no_mostrar":
         mostrar(str(self))#(self.latex())
     self.ops=str(self)
     self.ultop=self
+    #print('lista2 '+str(self.lista))
   @staticmethod
   def de_ceros(m,n,txt=""):
     C=list()
@@ -185,7 +189,7 @@ class matriz:# es una columna de renglones
   def size(self):
     return (len(self.lista),len(self.lista[0]))
   def __rmul__(self,vecAbs1):
-    return opBin(self,num(vecAbs1),escalar_por_matriz,"")
+    return opBin(self,Num(vecAbs1),escalar_por_matriz,"")
   def __mul__(self,vecAbs1):
     return opBin(self,vecAbs1,multiplicar_matrices,"")
   def __add__(self,vecAbs1):
@@ -256,7 +260,7 @@ class matriz:# es una columna de renglones
     s=s.lower()
     #print(s)
     def interpretaRenglon(s1):
-        s=s1.strip()
+        s=s1.replace(' ','')
         #print("interpretando "+s)
         d=s.find("r")
         if d==-1:
