@@ -1,5 +1,5 @@
 # Experiencia-MatemAtica
-Pretende ser un sistema experto para enseñar matemáticas
+Repositorio personal para enseñar matemáticas
 
 Archivos de álgebra lineal:
 
@@ -19,3 +19,5 @@ Otros archivos:
 GMmult.py
 Es un programa para ayudar a los niños a aprender las tablas de multiplicar.
 
+cuadros.py
+Es un entirno para usar SWING con Jython
